@@ -1,14 +1,28 @@
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
+<head>
+    <meta charset="UTF-8">
     <title>Directorio de Contactos</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <h1>Examen Recuperatorio</h1>
-    <!-- Escribe aquí todo tu HTML -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1>Directorio de Contactos</h1>
+
+    <form id="formContacto">
+        <input type="text" id="nombre" placeholder="Nombre">
+        <input type="text" id="telefono" placeholder="Teléfono">
+        <button type="submit">Agregar</button>
+    </form>
+
+    <input type="text" id="buscador" placeholder="Buscar contacto">
+
+    <p>Total de contactos: <span id="contador">0</span></p>
+
+    <div id="listaContactos">
+    </div>
 
     <script src="script.js"></script>
-  </body>
+</body>
 </html>
