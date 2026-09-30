@@ -27,6 +27,30 @@ formulario.addEventListener("submit", function(event) {
     formulario.reset();
 });
 
+const buscador = document.querySelector("#buscador");
+
+buscador.addEventListener("input", function() {
+    const texto = buscador.value.toLowerCase();
+
+    const contactosFiltrados = contactos.filter(function(contacto) {
+        return contacto.nombre.toLowerCase().includes(texto);
+    });
+
+    listaContactos.innerHTML = "";
+
+    contactosFiltrados.forEach(function(contacto) {
+        const elemento = document.createElement("div");
+
+        elemento.classList.add("contacto");
+
+        elemento.innerHTML = `
+            <span>${contacto.nombre} - ${contacto.telefono}</span>
+        `;
+
+        listaContactos.appendChild(elemento);
+    });
+});
+
 
 
 function mostrarContactos() {
