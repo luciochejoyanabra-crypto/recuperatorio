@@ -45,6 +45,10 @@ function mostrarContactos() {
         listaContactos.appendChild(elemento);
     });
 
+    document.querySelector("#contador").textContent = contactos.length;
+
+
+
     const botonesEliminar = document.querySelectorAll(".btnEliminar");
 
     botonesEliminar.forEach(function(boton) {
