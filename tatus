@@ -1,0 +1,52 @@
+[1mdiff --git a/script.js b/script.js[m
+[1mindex e69de29..0362bc5 100644[m
+[1m--- a/script.js[m
+[1m+++ b/script.js[m
+[36m@@ -0,0 +1,47 @@[m
+[32m+[m[32mlet contactos = [];[m
+[32m+[m
+[32m+[m
+[32m+[m[32mconst formulario = document.querySelector("#formContacto");[m
+[32m+[m[32mconst nombre = document.querySelector("#nombre");[m
+[32m+[m[32mconst telefono = document.querySelector("#telefono");[m
+[32m+[m[32mconst listaContactos = document.querySelector("#listaContactos");[m
+[32m+[m
+[32m+[m
+[32m+[m[32mformulario.addEventListener("submit", function(event) {[m
+[32m+[m[32m    event.preventDefault();[m
+[32m+[m
+[32m+[m[32m    const nombreContacto = nombre.value.trim();[m
+[32m+[m[32m    const telefonoContacto = telefono.value.trim();[m
+[32m+[m
+[32m+[m[32m    if (nombreContacto === "" || telefonoContacto === "") {[m
+[32m+[m[32m        return;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    contactos.push({[m
+[32m+[m[32m        nombre: nombreContacto,[m
+[32m+[m[32m        telefono: telefonoContacto[m
+[32m+[m[32m    });[m
+[32m+[m
+[32m+[m[32m    mostrarContactos();[m
+[32m+[m
+[32m+[m[32m    formulario.reset();[m
+[32m+[m[32m});[m
+[32m+[m
+[32m+[m
+[32m+[m
+[32m+[m[32mfunction mostrarContactos() {[m
+[32m+[m[32m    listaContactos.innerHTML = "";[m
+[32m+[m
+[32m+[m[32m    contactos.forEach(function(contacto) {[m
+[32m+[m[32m        const elemento = document.createElement("div");[m
+[32m+[m
+[32m+[m[32m        elemento.classList.add("contacto");[m
+[32m+[m
+[32m+[m[32m        elemento.innerHTML = `[m
+[32m+[m[32m            <span>${contacto.nombre} - ${contacto.telefono}</span>[m
+[32m+[m[32m        `;[m
+[32m+[m
+[32m+[m[32m        listaContactos.appendChild(elemento);[m
+[32m+[m[32m    });[m
+[32m+[m[32m}[m
+[32m+[m

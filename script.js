@@ -32,16 +32,29 @@ formulario.addEventListener("submit", function(event) {
 function mostrarContactos() {
     listaContactos.innerHTML = "";
 
-    contactos.forEach(function(contacto) {
+    contactos.forEach(function(contacto, indice) {
         const elemento = document.createElement("div");
 
         elemento.classList.add("contacto");
 
         elemento.innerHTML = `
             <span>${contacto.nombre} - ${contacto.telefono}</span>
+            <button class="btnEliminar" data-indice="${indice}">Eliminar</button>
         `;
 
         listaContactos.appendChild(elemento);
+    });
+
+    const botonesEliminar = document.querySelectorAll(".btnEliminar");
+
+    botonesEliminar.forEach(function(boton) {
+        boton.addEventListener("click", function() {
+            const indice = boton.dataset.indice;
+
+            contactos.splice(indice, 1);
+
+            mostrarContactos();
+        });
     });
 }
 
